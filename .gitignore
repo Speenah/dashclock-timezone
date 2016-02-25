@@ -29,3 +29,6 @@ proguard/
 .navigation/
 captures/
 .idea
+
+# Keystore
+keystore-dctz
