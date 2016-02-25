@@ -1,7 +1,11 @@
 <resources>
-    <string name="app_name">DashClock TimeZone</string>
+    <string name="app_name">TimeZone</string>
+    <string name="app_description">Display an alternate timezone and date</string>
 
     <!-- Strings related to Settings -->
+    <string name="prefs_title_1">Preferences for Time Zone #1</string>
+    <string name="prefs_title_2">Preferences for Time Zone #2</string>
+    <string name="prefs_title_3">Preferences for Time Zone #3</string>
 
     <!-- Example General settings -->
     <string name="pref_header_general">General</string>
