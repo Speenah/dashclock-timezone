@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/prefs_category_options">
+        <ListPreference
+            android:key="@string/prefs_select_timezone_key"
+            android:title="@string/prefs_select_timezone_title" />
+        <ListPreference
+            android:key="@string/prefs_12_or_24_key"
+            android:title="@string/prefs_12_or_24_title"
+            android:entries="@array/prefs_12_or_24_entries"
+            android:entryValues="@array/prefs_12_or_24_values"/>
+        <ListPreference
+            android:key="@string/prefs_system_or_custom_key"
+            android:title="@string/prefs_system_or_custom_title"
+            android:entries="@array/prefs_system_or_custom_entries_values"/>
+        <Preference
+            android:key="@string/prefs_time_builder_key"
+            android:title="@string/prefs_time_builder_title"
+            android:dependency="@string/prefs_system_or_custom_key"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/prefs_category_about">
+        <Preference
+            android:key="@string/prefs_about_key"
+            android:title="@string/prefs_about_title" />
+    </PreferenceCategory>
+</PreferenceScreen>

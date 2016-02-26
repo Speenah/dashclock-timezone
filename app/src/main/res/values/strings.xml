@@ -2,64 +2,47 @@
     <string name="app_name">TimeZone</string>
     <string name="app_description">Display an alternate timezone and date</string>
 
-    <!-- Strings related to Settings -->
+    <!-- Three separate extension titles -->
     <string name="prefs_title_1">TimeZone #1 Preferences</string>
     <string name="prefs_title_2">TimeZone #2 Preferences</string>
     <string name="prefs_title_3">TimeZone #3 Preferences</string>
 
-    <!-- Example General settings -->
-    <string name="pref_header_general">General</string>
+    <!-- Preference Categoies -->
+    <string name="prefs_category_options">Timezone Options</string>
+    <string name="prefs_category_about">About</string>
 
-    <string name="pref_title_social_recommendations">Enable social recommendations</string>
-    <string name="pref_description_social_recommendations">Recommendations for people to contact
-        based on your message history
-    </string>
+    <!-- Select Timezone [ListPreference] -->
+    <string name="prefs_select_timezone_key">timezone_list</string>
+    <string name="prefs_select_timezone_title">Select Timezone</string>
 
-    <string name="pref_title_display_name">Display name</string>
-    <string name="pref_default_display_name">John Smith</string>
+    <!-- Status Format [ListPreference] -->
+    <string name="prefs_12_or_24_key">select_12_or_24_hour_format</string>
+    <string name="prefs_12_or_24_title">Select Status Format</string>
 
-    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
-    <string-array name="pref_example_list_titles">
-        <item>Always</item>
-        <item>When possible</item>
-        <item>Never</item>
-    </string-array>
-    <string-array name="pref_example_list_values">
-        <item>1</item>
-        <item>0</item>
-        <item>-1</item>
+    <string-array name="prefs_12_or_24_entries">
+        <item>12 Hour</item>
+        <item>24 Hour</item>
     </string-array>
 
-    <!-- Example settings for Data & Sync -->
-    <string name="pref_header_data_sync">Data &amp; sync</string>
-
-    <string name="pref_title_sync_frequency">Sync frequency</string>
-    <string-array name="pref_sync_frequency_titles">
-        <item>15 minutes</item>
-        <item>30 minutes</item>
-        <item>1 hour</item>
-        <item>3 hours</item>
-        <item>6 hours</item>
-        <item>Never</item>
-    </string-array>
-    <string-array name="pref_sync_frequency_values">
-        <item>15</item>
-        <item>30</item>
-        <item>60</item>
-        <item>180</item>
-        <item>360</item>
-        <item>-1</item>
+    <string-array name="prefs_12_or_24_values">
+        <item>hh:mm a</item>
+        <item>HH:mm</item>
     </string-array>
 
-    <string name="pref_title_system_sync_settings">System sync settings</string>
+    <!-- Extended Format [ListPreference] -->
+    <string name="prefs_system_or_custom_key">select_system_or_custom_format</string>
+    <string name="prefs_system_or_custom_title">Select Extended Format</string>
 
-    <!-- Example settings for Notifications -->
-    <string name="pref_header_notifications">Notifications</string>
+    <string-array name="prefs_system_or_custom_entries_values">
+        <item>Use System Time</item>
+        <item>Use Custom Format</item>
+    </string-array>
 
-    <string name="pref_title_new_message_notifications">New message notifications</string>
+    <!-- Time Builder [Preference] -->
+    <string name="prefs_time_builder_key">time_builder_launcher</string>
+    <string name="prefs_time_builder_title">Custom Format</string>
 
-    <string name="pref_title_ringtone">Ringtone</string>
-    <string name="pref_ringtone_silent">Silent</string>
-
-    <string name="pref_title_vibrate">Vibrate</string>
+    <!-- About [Preference] -->
+    <string name="prefs_about_key">about_dialog</string>
+    <string name="prefs_about_title">About</string>
 </resources>
