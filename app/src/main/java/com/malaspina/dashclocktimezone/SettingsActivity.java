@@ -134,7 +134,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_base);
-            // TODO: Fix FC from appending prefs after opening multiple time
+            // TODO: Generate timezone list
         }
     }
 
@@ -159,7 +159,6 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.pref_base);
         }
     }
 }
