@@ -43,6 +43,17 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         @Override
         public boolean onPreferenceChange(Preference preference, Object value) {
             String stringValue = value.toString();
+
+            if (preference instanceof ListPreference) {
+                // Get selected position to set summary
+                ListPreference tempListPreference = (ListPreference) preference;
+                int index = tempListPreference.findIndexOfValue(stringValue);
+                preference.setSummary(tempListPreference.getEntries()[index]);
+            } else {
+                // Set summary for all other preferences
+                preference.setSummary(stringValue);
+            }
+
             return true;
         }
     };
@@ -128,7 +139,9 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_base);
-            // TODO: Generate timezone list
+
+            // TODO: Make extension number specific
+            bindPreferenceSummaryToValue(findPreference(getString(R.string.prefs_select_timezone_key)));
         }
     }
 
