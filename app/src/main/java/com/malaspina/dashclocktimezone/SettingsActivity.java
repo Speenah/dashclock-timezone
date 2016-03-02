@@ -109,12 +109,6 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public void onBuildHeaders(List<Header> target) {
         loadHeadersFromResource(R.xml.pref_headers, target);
-
-        for(Header header: target) {
-            if (BaseSettingsFragment.class.getName().equals(header.fragment)) {
-                header.summary = "New General Summary!";
-            }
-        }
     }
 
     /**
