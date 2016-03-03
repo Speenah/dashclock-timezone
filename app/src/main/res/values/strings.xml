@@ -18,7 +18,9 @@
     <string name="prefs_select_timezone_title">Select Timezone</string>
 
     <!-- Status Format [ListPreference] -->
-    <string name="prefs_12_or_24_key">select_12_or_24_hour_format</string>
+    <string name="prefs_12_or_24_key_1">select_12_or_24_hour_format_1</string>
+    <string name="prefs_12_or_24_key_2">select_12_or_24_hour_format_2</string>
+    <string name="prefs_12_or_24_key_3">select_12_or_24_hour_format_3</string>
     <string name="prefs_12_or_24_title">Select Status Format</string>
 
     <string-array name="prefs_12_or_24_entries">
@@ -32,7 +34,9 @@
     </string-array>
 
     <!-- Extended Format [ListPreference] -->
-    <string name="prefs_system_or_custom_key">select_system_or_custom_format</string>
+    <string name="prefs_system_or_custom_key_1">select_system_or_custom_format</string>
+    <string name="prefs_system_or_custom_key_2">select_system_or_custom_format</string>
+    <string name="prefs_system_or_custom_key_3">select_system_or_custom_format</string>
     <string name="prefs_system_or_custom_title">Select Extended Format</string>
 
     <string-array name="prefs_system_or_custom_entries_values">
@@ -47,7 +51,10 @@
     <!-- About [Preference] -->
     <string name="prefs_about_key">about_dialog</string>
     <string name="prefs_about_title">About</string>
-    
+
+    <!-- Default Settings -->
+    <string name="default_timezone">Europe/London</string>
+
     <!-- Timezone IDs generated on 2/29/16 -->
     <string-array name="prefs_timezone_ids">
         <item>ACT</item>

@@ -12,6 +12,7 @@ import android.preference.PreferenceActivity;
 import android.support.v7.app.ActionBar;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import java.util.List;
 
@@ -68,7 +69,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
      *
      * @see #sBindPreferenceSummaryToValueListener
      */
-    private static void bindPreferenceSummaryToValue(Preference preference) {
+    private static void bindPreferenceSummaryToValue(Preference preference, String default_value) {
         // Set the listener to watch for value changes.
         preference.setOnPreferenceChangeListener(sBindPreferenceSummaryToValueListener);
 
@@ -77,7 +78,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         sBindPreferenceSummaryToValueListener.onPreferenceChange(preference,
                 PreferenceManager
                         .getDefaultSharedPreferences(preference.getContext())
-                        .getString(preference.getKey(), ""));
+                        .getString(preference.getKey(), default_value));
     }
 
     @Override
@@ -127,12 +128,35 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public static class BaseSettingsFragment extends PreferenceFragment {
+
+        private String timezone_key;
+        private int prefs_xml;
+
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
+            addPreferencesFromResource(getPrefs_xml());
 
             // TODO: Make extension number specific
-            bindPreferenceSummaryToValue(findPreference(getString(R.string.prefs_select_timezone_key)));
+            Log.i("BaseSettings key", getTimezone_key());
+            bindPreferenceSummaryToValue(findPreference(getTimezone_key()),
+                    getString(R.string.default_timezone));
+        }
+
+        public String getTimezone_key() {
+            return timezone_key;
+        }
+
+        public void setTimezone_key(String timezone_key) {
+            this.timezone_key = timezone_key;
+        }
+
+        public int getPrefs_xml() {
+            return prefs_xml;
+        }
+
+        public void setPrefs_xml(int prefs_xml) {
+            this.prefs_xml = prefs_xml;
         }
     }
 
@@ -140,8 +164,9 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
     public static class SettingsFragment1 extends BaseSettingsFragment {
         @Override
         public void onCreate(Bundle savedInstanceState) {
+            setTimezone_key(getString(R.string.prefs_select_timezone_key_1));
+            setPrefs_xml(R.xml.pref_base_1);
             super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.pref_base_1);
         }
     }
 
@@ -149,8 +174,9 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
     public static class SettingsFragment2 extends BaseSettingsFragment {
         @Override
         public void onCreate(Bundle savedInstanceState) {
+            setTimezone_key(getString(R.string.prefs_select_timezone_key_2));
+            setPrefs_xml(R.xml.pref_base_2);
             super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.pref_base_2);
         }
     }
 
@@ -158,8 +184,9 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
     public static class SettingsFragment3 extends BaseSettingsFragment {
         @Override
         public void onCreate(Bundle savedInstanceState) {
+            setTimezone_key(getString(R.string.prefs_select_timezone_key_3));
+            setPrefs_xml(R.xml.pref_base_3);
             super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.pref_base_3);
         }
     }
 }
