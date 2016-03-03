@@ -34,9 +34,9 @@
     </string-array>
 
     <!-- Extended Format [ListPreference] -->
-    <string name="prefs_system_or_custom_key_1">select_system_or_custom_format</string>
-    <string name="prefs_system_or_custom_key_2">select_system_or_custom_format</string>
-    <string name="prefs_system_or_custom_key_3">select_system_or_custom_format</string>
+    <string name="prefs_system_or_custom_key_1">select_system_or_custom_format_1</string>
+    <string name="prefs_system_or_custom_key_2">select_system_or_custom_format_2</string>
+    <string name="prefs_system_or_custom_key_3">select_system_or_custom_format_3</string>
     <string name="prefs_system_or_custom_title">Select Extended Format</string>
 
     <string-array name="prefs_system_or_custom_entries_values">
