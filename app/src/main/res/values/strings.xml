@@ -12,7 +12,9 @@
     <string name="prefs_category_about">About</string>
 
     <!-- Select Timezone [ListPreference] -->
-    <string name="prefs_select_timezone_key">timezone_list</string>
+    <string name="prefs_select_timezone_key_1">timezone_1</string>
+    <string name="prefs_select_timezone_key_2">timezone_2</string>
+    <string name="prefs_select_timezone_key_3">timezone_3</string>
     <string name="prefs_select_timezone_title">Select Timezone</string>
 
     <!-- Status Format [ListPreference] -->
@@ -45,7 +47,7 @@
     <!-- About [Preference] -->
     <string name="prefs_about_key">about_dialog</string>
     <string name="prefs_about_title">About</string>
-
+    
     <!-- Timezone IDs generated on 2/29/16 -->
     <string-array name="prefs_timezone_ids">
         <item>ACT</item>
