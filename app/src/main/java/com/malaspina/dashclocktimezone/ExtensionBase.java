@@ -6,7 +6,7 @@ import com.google.android.apps.dashclock.api.ExtensionData;
 /**
  * Created by Ryan on 2/24/2016.
  */
-public class Extension extends DashClockExtension {
+public class ExtensionBase extends DashClockExtension {
 
     @Override
     protected void onInitialize(boolean isReconnect) {
