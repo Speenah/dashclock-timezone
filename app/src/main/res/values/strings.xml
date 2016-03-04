@@ -3,6 +3,11 @@
     <string name="app_description">Display an alternate timezone and date</string>
 
     <!-- Three separate extension titles -->
+    <string name="ext_title_1">TimeZone #1</string>
+    <string name="ext_title_2">TimeZone #2</string>
+    <string name="ext_title_3">TimeZone #3</string>
+
+    <!-- Three separate extension preference titles -->
     <string name="prefs_title_1">TimeZone #1 Preferences</string>
     <string name="prefs_title_2">TimeZone #2 Preferences</string>
     <string name="prefs_title_3">TimeZone #3 Preferences</string>
