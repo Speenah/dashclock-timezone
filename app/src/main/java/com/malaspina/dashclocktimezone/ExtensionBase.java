@@ -23,7 +23,7 @@ public class ExtensionBase extends DashClockExtension {
         data.visible(true);
         data.icon(R.mipmap.ic_stat);
         data.status("Hi!");
-        data.expandedTitle("Hello World!");
+        data.expandedTitle(getTimezone_key());
         data.expandedBody("Hello World! (Again!)");
 
         publishUpdate(data);

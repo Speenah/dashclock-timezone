@@ -6,7 +6,7 @@ package com.malaspina.dashclocktimezone;
 public class Extension_2 extends ExtensionBase {
     @Override
     public void onCreate() {
-        setTimezone_key(getString(R.string.prefs_select_timezone_key_1));
+        setTimezone_key(getString(R.string.prefs_select_timezone_key_2));
         super.onCreate();
     }
 }
