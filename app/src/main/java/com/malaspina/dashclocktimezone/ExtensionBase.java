@@ -8,6 +8,8 @@ import com.google.android.apps.dashclock.api.ExtensionData;
  */
 public class ExtensionBase extends DashClockExtension {
 
+    private String timezone_key;
+
     @Override
     protected void onInitialize(boolean isReconnect) {
         setUpdateWhenScreenOn(true);
@@ -25,5 +27,13 @@ public class ExtensionBase extends DashClockExtension {
         data.expandedBody("Hello World! (Again!)");
 
         publishUpdate(data);
+    }
+
+    public String getTimezone_key() {
+        return timezone_key;
+    }
+
+    public void setTimezone_key(String timezone_key) {
+        this.timezone_key = timezone_key;
     }
 }
