@@ -13,6 +13,7 @@ import android.support.v7.app.ActionBar;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.MenuItem;
 
 import java.util.List;
 
@@ -178,6 +179,16 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             setHour_format(getString(R.string.prefs_12_or_24_key_1));
             setPrefs_xml(R.xml.pref_base_1);
             super.onCreate(savedInstanceState);
+        }
+
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            switch (item.getItemId()) {
+                case android.R.id.home:
+                    // TODO: close fragment automatically
+                    break;
+            }
+            return super.onOptionsItemSelected(item);
         }
     }
 
