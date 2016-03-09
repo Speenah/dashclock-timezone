@@ -9,6 +9,7 @@ import com.google.android.apps.dashclock.api.ExtensionData;
 public class ExtensionBase extends DashClockExtension {
 
     private String timezone_key;
+    private String hour_format;
 
     @Override
     protected void onInitialize(boolean isReconnect) {
@@ -35,5 +36,13 @@ public class ExtensionBase extends DashClockExtension {
 
     public void setTimezone_key(String timezone_key) {
         this.timezone_key = timezone_key;
+    }
+
+    public String getHour_format() {
+        return hour_format;
+    }
+
+    public void setHour_format(String hour_format) {
+        this.hour_format = hour_format;
     }
 }

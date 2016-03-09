@@ -130,6 +130,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
     public static class BaseSettingsFragment extends PreferenceFragment {
 
         private String timezone_key;
+        private String hour_format;
         private int prefs_xml;
 
         @Override
@@ -137,10 +138,11 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(getPrefs_xml());
 
-            // TODO: Make extension number specific
             Log.i("BaseSettings key", getTimezone_key());
             bindPreferenceSummaryToValue(findPreference(getTimezone_key()),
                     getString(R.string.default_timezone));
+            bindPreferenceSummaryToValue(findPreference(getHour_format()),
+                    getString(R.string.default_hour_format));
         }
 
         public String getTimezone_key() {
@@ -158,6 +160,14 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         public void setPrefs_xml(int prefs_xml) {
             this.prefs_xml = prefs_xml;
         }
+
+        public String getHour_format() {
+            return hour_format;
+        }
+
+        public void setHour_format(String hour_format) {
+            this.hour_format = hour_format;
+        }
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -165,6 +175,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             setTimezone_key(getString(R.string.prefs_select_timezone_key_1));
+            setHour_format(getString(R.string.prefs_12_or_24_key_1));
             setPrefs_xml(R.xml.pref_base_1);
             super.onCreate(savedInstanceState);
         }
@@ -175,6 +186,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             setTimezone_key(getString(R.string.prefs_select_timezone_key_2));
+            setHour_format(getString(R.string.prefs_12_or_24_key_2));
             setPrefs_xml(R.xml.pref_base_2);
             super.onCreate(savedInstanceState);
         }
@@ -185,6 +197,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             setTimezone_key(getString(R.string.prefs_select_timezone_key_3));
+            setHour_format(getString(R.string.prefs_12_or_24_key_3));
             setPrefs_xml(R.xml.pref_base_3);
             super.onCreate(savedInstanceState);
         }
