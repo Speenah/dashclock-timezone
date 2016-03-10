@@ -127,6 +127,16 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                 || SettingsFragment3.class.getName().equals(fragmentName);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public static class BaseSettingsFragment extends PreferenceFragment {
 
@@ -193,15 +203,6 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             super.onCreate(savedInstanceState);
         }
 
-        @Override
-        public boolean onOptionsItemSelected(MenuItem item) {
-            switch (item.getItemId()) {
-                case android.R.id.home:
-                    // TODO: close fragment automatically
-                    break;
-            }
-            return super.onOptionsItemSelected(item);
-        }
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
