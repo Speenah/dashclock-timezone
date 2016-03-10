@@ -1,5 +1,8 @@
 package com.malaspina.dashclocktimezone;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+
 import com.google.android.apps.dashclock.api.DashClockExtension;
 import com.google.android.apps.dashclock.api.ExtensionData;
 
@@ -12,6 +15,8 @@ public class ExtensionBase extends DashClockExtension {
     private String hour_format_key;
     private String ext_format_key;
 
+    SharedPreferences prefs;
+
     @Override
     protected void onInitialize(boolean isReconnect) {
         setUpdateWhenScreenOn(true);
@@ -20,13 +25,23 @@ public class ExtensionBase extends DashClockExtension {
 
     @Override
     protected void onUpdateData(int reason) {
+
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        String timezone = prefs.getString(getTimezone_key(),
+                getString(R.string.default_timezone));
+        String hourFormat = prefs.getString(getHour_format_key(),
+                getString(R.string.default_hour_format));
+        String extFormat  = prefs.getString(getExt_format_key(),
+                getString(R.string.default_extended_format));
+
         ExtensionData data = new ExtensionData();
 
         data.visible(true);
         data.icon(R.mipmap.ic_stat);
         data.status("Hi!");
         data.expandedTitle(getTimezone_key());
-        data.expandedBody("Hello World! (Again!)");
+        data.expandedBody(timezone);
 
         publishUpdate(data);
     }
