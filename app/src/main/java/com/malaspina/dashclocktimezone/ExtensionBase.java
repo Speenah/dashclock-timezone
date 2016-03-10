@@ -10,6 +10,7 @@ public class ExtensionBase extends DashClockExtension {
 
     private String timezone_key;
     private String hour_format;
+    private String ext_format;
 
     @Override
     protected void onInitialize(boolean isReconnect) {
@@ -44,5 +45,13 @@ public class ExtensionBase extends DashClockExtension {
 
     public void setHour_format(String hour_format) {
         this.hour_format = hour_format;
+    }
+
+    public String getExt_format() {
+        return ext_format;
+    }
+
+    public void setExt_format(String ext_format) {
+        this.ext_format = ext_format;
     }
 }

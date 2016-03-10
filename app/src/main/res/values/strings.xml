@@ -60,6 +60,7 @@
     <!-- Default Settings -->
     <string name="default_timezone">Europe/London</string>
     <string name="default_hour_format">hh:mm a</string>
+    <string name="default_extended_format">Use System Time</string>
 
     <!-- Timezone IDs generated on 2/29/16 -->
     <string-array name="prefs_timezone_ids">
