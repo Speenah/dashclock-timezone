@@ -141,8 +141,8 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
     public static class BaseSettingsFragment extends PreferenceFragment {
 
         private String timezone_key;
-        private String hour_format;
-        private String ext_format;
+        private String hour_format_key;
+        private String ext_format_key;
         private int prefs_xml;
 
         @Override
@@ -153,9 +153,9 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             Log.i("BaseSettings key", getTimezone_key());
             bindPreferenceSummaryToValue(findPreference(getTimezone_key()),
                     getString(R.string.default_timezone));
-            bindPreferenceSummaryToValue(findPreference(getHour_format()),
+            bindPreferenceSummaryToValue(findPreference(getHour_format_key()),
                     getString(R.string.default_hour_format));
-            bindPreferenceSummaryToValue(findPreference(getExt_format()),
+            bindPreferenceSummaryToValue(findPreference(getExt_format_key()),
                     getString(R.string.default_extended_format));
         }
 
@@ -175,20 +175,20 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             this.prefs_xml = prefs_xml;
         }
 
-        public String getHour_format() {
-            return hour_format;
+        public String getHour_format_key() {
+            return hour_format_key;
         }
 
-        public void setHour_format(String hour_format) {
-            this.hour_format = hour_format;
+        public void setHour_format_key(String hour_format_key) {
+            this.hour_format_key = hour_format_key;
         }
 
-        public String getExt_format() {
-            return ext_format;
+        public String getExt_format_key() {
+            return ext_format_key;
         }
 
-        public void setExt_format(String ext_format) {
-            this.ext_format = ext_format;
+        public void setExt_format_key(String ext_format_key) {
+            this.ext_format_key = ext_format_key;
         }
     }
 
@@ -197,8 +197,8 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             setTimezone_key(getString(R.string.prefs_select_timezone_key_1));
-            setHour_format(getString(R.string.prefs_12_or_24_key_1));
-            setExt_format(getString(R.string.prefs_system_or_custom_key_1));
+            setHour_format_key(getString(R.string.prefs_12_or_24_key_1));
+            setExt_format_key(getString(R.string.prefs_system_or_custom_key_1));
             setPrefs_xml(R.xml.pref_base_1);
             super.onCreate(savedInstanceState);
         }
@@ -210,8 +210,8 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             setTimezone_key(getString(R.string.prefs_select_timezone_key_2));
-            setHour_format(getString(R.string.prefs_12_or_24_key_2));
-            setExt_format(getString(R.string.prefs_system_or_custom_key_2));
+            setHour_format_key(getString(R.string.prefs_12_or_24_key_2));
+            setExt_format_key(getString(R.string.prefs_system_or_custom_key_2));
             setPrefs_xml(R.xml.pref_base_2);
             super.onCreate(savedInstanceState);
         }
@@ -222,8 +222,8 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             setTimezone_key(getString(R.string.prefs_select_timezone_key_3));
-            setHour_format(getString(R.string.prefs_12_or_24_key_3));
-            setExt_format(getString(R.string.prefs_system_or_custom_key_3));
+            setHour_format_key(getString(R.string.prefs_12_or_24_key_3));
+            setExt_format_key(getString(R.string.prefs_system_or_custom_key_3));
             setPrefs_xml(R.xml.pref_base_3);
             super.onCreate(savedInstanceState);
         }

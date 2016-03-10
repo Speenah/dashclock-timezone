@@ -9,8 +9,8 @@ import com.google.android.apps.dashclock.api.ExtensionData;
 public class ExtensionBase extends DashClockExtension {
 
     private String timezone_key;
-    private String hour_format;
-    private String ext_format;
+    private String hour_format_key;
+    private String ext_format_key;
 
     @Override
     protected void onInitialize(boolean isReconnect) {
@@ -39,19 +39,19 @@ public class ExtensionBase extends DashClockExtension {
         this.timezone_key = timezone_key;
     }
 
-    public String getHour_format() {
-        return hour_format;
+    public String getHour_format_key() {
+        return hour_format_key;
     }
 
-    public void setHour_format(String hour_format) {
-        this.hour_format = hour_format;
+    public void setHour_format_key(String hour_format_key) {
+        this.hour_format_key = hour_format_key;
     }
 
-    public String getExt_format() {
-        return ext_format;
+    public String getExt_format_key() {
+        return ext_format_key;
     }
 
-    public void setExt_format(String ext_format) {
-        this.ext_format = ext_format;
+    public void setExt_format_key(String ext_format_key) {
+        this.ext_format_key = ext_format_key;
     }
 }
