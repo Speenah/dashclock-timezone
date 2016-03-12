@@ -6,6 +6,10 @@ import android.preference.PreferenceManager;
 import com.google.android.apps.dashclock.api.DashClockExtension;
 import com.google.android.apps.dashclock.api.ExtensionData;
 
+import net.danlew.android.joda.DateUtils;
+
+import org.joda.time.DateTime;
+
 /**
  * Created by Ryan on 2/24/2016.
  */
@@ -39,11 +43,16 @@ public class ExtensionBase extends DashClockExtension {
 
         data.visible(true);
         data.icon(R.mipmap.ic_stat);
-        data.status("Hi!");
+        data.status(getTime());
         data.expandedTitle(getTimezone_key());
         data.expandedBody(timezone);
 
         publishUpdate(data);
+    }
+
+    private String getTime() {
+        DateTime now = new DateTime();
+        return DateUtils.formatDateTime(this, now, DateUtils.FORMAT_SHOW_TIME);
     }
 
     public String getTimezone_key() {
