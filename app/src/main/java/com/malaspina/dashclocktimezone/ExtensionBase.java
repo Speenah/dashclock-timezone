@@ -1,5 +1,9 @@
 package com.malaspina.dashclocktimezone;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
@@ -21,10 +25,20 @@ public class ExtensionBase extends DashClockExtension {
 
     SharedPreferences prefs;
 
+    private final static IntentFilter INTENT_FILTER;
+
+    static {
+        INTENT_FILTER = new IntentFilter();
+        INTENT_FILTER.addAction(Intent.ACTION_TIME_TICK);
+        INTENT_FILTER.addAction(Intent.ACTION_TIMEZONE_CHANGED);
+        INTENT_FILTER.addAction(Intent.ACTION_TIME_CHANGED);
+    }
+
     @Override
     protected void onInitialize(boolean isReconnect) {
         setUpdateWhenScreenOn(true);
         super.onInitialize(isReconnect);
+        registerReceiver(mTimeInfoReceiver, INTENT_FILTER);
     }
 
     @Override
@@ -53,6 +67,25 @@ public class ExtensionBase extends DashClockExtension {
     private String getTime() {
         DateTime now = new DateTime();
         return DateUtils.formatDateTime(this, now, DateUtils.FORMAT_SHOW_TIME);
+    }
+
+    // If time changed, update extension
+    private BroadcastReceiver mTimeInfoReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context arg0, Intent intent) {
+            final String action = intent.getAction();
+            if (action.equals(Intent.ACTION_TIME_TICK) ||
+                    action.equals(Intent.ACTION_TIME_CHANGED) ||
+                    action.equals(Intent.ACTION_TIMEZONE_CHANGED)) {
+                onUpdateData(0);
+            }
+        }
+    };
+
+    @Override
+    public void onDestroy() {
+        unregisterReceiver(mTimeInfoReceiver);
+        super.onDestroy();
     }
 
     public String getTimezone_key() {
