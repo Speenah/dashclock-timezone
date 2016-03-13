@@ -13,6 +13,7 @@ import com.google.android.apps.dashclock.api.ExtensionData;
 import net.danlew.android.joda.DateUtils;
 
 import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 
 /**
  * Created by Ryan on 2/24/2016.
@@ -57,16 +58,18 @@ public class ExtensionBase extends DashClockExtension {
 
         data.visible(true);
         data.icon(R.mipmap.ic_stat);
-        data.status(getTime());
-        data.expandedTitle(getTimezone_key());
+        data.status(getTime(timezone));
+        data.expandedTitle(getTime(timezone));
         data.expandedBody(timezone);
 
         publishUpdate(data);
     }
 
-    private String getTime() {
+    private String getTime(String timezone) {
         DateTime now = new DateTime();
-        return DateUtils.formatDateTime(this, now, DateUtils.FORMAT_SHOW_TIME);
+        DateTimeZone tz = DateTimeZone.forID(timezone);
+        DateTime now_tz = now.toDateTime(tz);
+        return DateUtils.formatDateTime(this, now_tz, DateUtils.FORMAT_SHOW_TIME);
     }
 
     // If time changed, update extension
