@@ -14,9 +14,12 @@ import net.danlew.android.joda.DateUtils;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 /**
  * Created by Ryan on 2/24/2016.
+ *
  */
 public class ExtensionBase extends DashClockExtension {
 
@@ -58,18 +61,19 @@ public class ExtensionBase extends DashClockExtension {
 
         data.visible(true);
         data.icon(R.mipmap.ic_stat);
-        data.status(getTime(timezone));
-        data.expandedTitle(getTime(timezone));
+        data.status(getTime(timezone, hourFormat));
+        data.expandedTitle(getTime(timezone, hourFormat));
         data.expandedBody(timezone);
 
         publishUpdate(data);
     }
 
-    private String getTime(String timezone) {
+    private String getTime(String timezone, String hourFormat) {
         DateTime now = new DateTime();
         DateTimeZone tz = DateTimeZone.forID(timezone);
         DateTime now_tz = now.toDateTime(tz);
-        return DateUtils.formatDateTime(this, now_tz, DateUtils.FORMAT_SHOW_TIME);
+        DateTimeFormatter format = DateTimeFormat.forPattern(hourFormat);
+        return format.print(now_tz);
     }
 
     // If time changed, update extension
