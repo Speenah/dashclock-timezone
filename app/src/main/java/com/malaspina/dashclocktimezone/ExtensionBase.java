@@ -10,8 +10,6 @@ import android.preference.PreferenceManager;
 import com.google.android.apps.dashclock.api.DashClockExtension;
 import com.google.android.apps.dashclock.api.ExtensionData;
 
-import net.danlew.android.joda.DateUtils;
-
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.joda.time.format.DateTimeFormat;
@@ -61,19 +59,22 @@ public class ExtensionBase extends DashClockExtension {
 
         data.visible(true);
         data.icon(R.mipmap.ic_stat);
-        data.status(getTime(timezone, hourFormat));
-        data.expandedTitle(getTime(timezone, hourFormat));
+        data.status(getStatusTime(timezone, hourFormat));
+        data.expandedTitle(getStatusTime(timezone, hourFormat));
         data.expandedBody(timezone);
 
         publishUpdate(data);
     }
 
-    private String getTime(String timezone, String hourFormat) {
+    private String getStatusTime(String timezone, String hourFormat) {
+        DateTimeFormatter format = DateTimeFormat.forPattern(hourFormat);
+        return format.print(getDateTime(timezone));
+    }
+
+    private DateTime getDateTime(String timezone) {
         DateTime now = new DateTime();
         DateTimeZone tz = DateTimeZone.forID(timezone);
-        DateTime now_tz = now.toDateTime(tz);
-        DateTimeFormatter format = DateTimeFormat.forPattern(hourFormat);
-        return format.print(now_tz);
+        return now.toDateTime(tz);
     }
 
     // If time changed, update extension
