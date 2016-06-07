@@ -24,7 +24,7 @@
             <meta-data android:name="description"
                 android:value="@string/app_description" />
             <meta-data android:name="settingsActivity"
-                android:value=".SettingsActivity" />
+                android:value=".SettingsActivityLauncher1" />
 
         </service>
 
@@ -42,7 +42,7 @@
             <meta-data android:name="description"
                 android:value="@string/app_description" />
             <meta-data android:name="settingsActivity"
-                android:value=".SettingsActivity" />
+                android:value=".SettingsActivityLauncher2" />
 
         </service>
 
@@ -60,7 +60,7 @@
             <meta-data android:name="description"
                 android:value="@string/app_description" />
             <meta-data android:name="settingsActivity"
-                android:value=".SettingsActivity" />
+                android:value=".SettingsActivityLauncher3" />
 
         </service>
 
@@ -73,6 +73,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".SettingsActivityLauncher1"
+            android:exported="true"/>
+        <activity
+            android:name=".SettingsActivityLauncher2"
+            android:exported="true"/>
+        <activity
+            android:name=".SettingsActivityLauncher3"
+            android:exported="true"/>
     </application>
 
 </manifest>

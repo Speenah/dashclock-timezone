@@ -190,6 +190,10 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         public void setExt_format_key(String ext_format_key) {
             this.ext_format_key = ext_format_key;
         }
+
+        public void setTitle(int title) {
+            this.getActivity().setTitle(title);
+        }
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -200,6 +204,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             setHour_format_key(getString(R.string.prefs_12_or_24_key_1));
             setExt_format_key(getString(R.string.prefs_system_or_custom_key_1));
             setPrefs_xml(R.xml.pref_base_1);
+            setTitle(R.string.prefs_title_1);
             super.onCreate(savedInstanceState);
         }
 
@@ -213,6 +218,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             setHour_format_key(getString(R.string.prefs_12_or_24_key_2));
             setExt_format_key(getString(R.string.prefs_system_or_custom_key_2));
             setPrefs_xml(R.xml.pref_base_2);
+            setTitle(R.string.prefs_title_2);
             super.onCreate(savedInstanceState);
         }
     }
@@ -225,6 +231,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             setHour_format_key(getString(R.string.prefs_12_or_24_key_3));
             setExt_format_key(getString(R.string.prefs_system_or_custom_key_3));
             setPrefs_xml(R.xml.pref_base_3);
+            setTitle(R.string.prefs_title_3);
             super.onCreate(savedInstanceState);
         }
     }
