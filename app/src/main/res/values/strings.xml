@@ -53,6 +53,21 @@
     <string name="prefs_time_builder_key">time_builder_launcher</string>
     <string name="prefs_time_builder_title">Custom Format</string>
 
+    <string name="time_builder_note">Notice: If you use seconds (s) in your format, they will still
+        be shown but the time only gets updated once per minute.</string>
+    <string-array name="time_builder_preset_entries">
+        <item>Short</item>
+        <item>Medium</item>
+        <item>Long</item>
+        <item>Full</item>
+    </string-array>
+    <string-array name="time_builder_preset_values">
+        <item>S</item>
+        <item>M</item>
+        <item>L</item>
+        <item>F</item>
+    </string-array>
+
     <!-- About [Preference] -->
     <string name="prefs_about_key">about_dialog</string>
     <string name="prefs_about_title">About</string>

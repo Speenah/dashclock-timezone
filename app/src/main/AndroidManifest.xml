@@ -83,6 +83,10 @@
         <activity
             android:name=".SettingsActivityLauncher3"
             android:exported="true"/>
+
+        <activity android:name=".FormatBuilder"
+            android:theme="@android:style/Theme.Dialog" />
+
     </application>
 
 </manifest>
