@@ -53,6 +53,7 @@
     <string name="prefs_time_builder_key">time_builder_launcher</string>
     <string name="prefs_time_builder_title">Custom Format</string>
 
+    <!-- Time Builder [Activity] -->
     <string name="time_builder_note">Notice: If you use seconds (s) in your format, they will still
         be shown but the time only gets updated once per minute.</string>
     <string-array name="time_builder_preset_entries">
