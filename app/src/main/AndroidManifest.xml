@@ -85,7 +85,7 @@
             android:exported="true"/>
 
         <activity android:name=".FormatBuilder"
-            android:theme="@android:style/Theme.Dialog" />
+            android:theme="@style/AppTheme"/>
 
     </application>
 

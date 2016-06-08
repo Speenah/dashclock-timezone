@@ -3,6 +3,8 @@ package com.malaspina.dashclocktimezone;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 
 import java.util.List;
 
@@ -52,7 +55,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         }
     };
 
-    /**
+        /**
      * Helper method to determine if the device has an extra-large screen. For
      * example, 10" tablets are extra-large.
      */
@@ -157,6 +160,9 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                     getString(R.string.default_hour_format));
             bindPreferenceSummaryToValue(findPreference(getExt_format_key()),
                     getString(R.string.default_extended_format));
+
+            findPreference(getString(R.string.prefs_time_builder_key))
+                    .setOnPreferenceClickListener(onPreferenceClickListener);
         }
 
         public String getTimezone_key() {
@@ -194,6 +200,19 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         public void setTitle(int title) {
             this.getActivity().setTitle(title);
         }
+
+        private Preference.OnPreferenceClickListener onPreferenceClickListener = new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                if (preference.getKey().equals(getString(R.string.prefs_time_builder_key))) {
+                    Intent i = new Intent(getActivity(), FormatBuilder.class);
+                    i.putExtra("id", getTimezone_key());
+                    startActivity(i);
+                    return true;
+                }
+                return false;
+            }
+        };
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
