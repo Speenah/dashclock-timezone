@@ -15,6 +15,8 @@ import org.joda.time.DateTimeZone;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
+import java.util.Locale;
+
 /**
  * Created by Ryan on 2/24/2016.
  *
@@ -59,18 +61,41 @@ public class ExtensionBase extends DashClockExtension {
 
         data.visible(true);
         data.icon(R.mipmap.ic_stat);
-        data.status(getStatusTime(timezone, hourFormat));
-        data.expandedTitle(getStatusTime(timezone, hourFormat));
+        data.status(getTime(timezone, hourFormat));
+        data.expandedTitle(getExtendedTime(timezone, hourFormat));
         data.expandedBody(timezone);
 
         publishUpdate(data);
     }
 
-    private String getStatusTime(String timezone, String hourFormat) {
-        DateTimeFormatter format = DateTimeFormat.forPattern(hourFormat);
-        return format.print(getDateTime(timezone));
+    /**
+     * Get the time for the timezone formatted properly
+     * @param timezone The timezone
+     * @param pattern A DateTime format pattern
+     * @return
+     */
+    private String getTime(String timezone, String pattern) {
+        DateTimeFormatter formatter = DateTimeFormat.forPattern(pattern);
+        return formatter.print(getDateTime(timezone));
     }
 
+    /**
+     * Uses getTime but with the system's date format included in the pattern
+     * @param timezone The timezone
+     * @param hourFormat The format for the hours
+     * @return
+     */
+    private String getExtendedTime(String timezone, String hourFormat) {
+        String pattern = DateTimeFormat.patternForStyle("M-", Locale.getDefault())
+                + " " + hourFormat;
+        return getTime(timezone, pattern);
+    }
+
+    /**
+     * Returns a DateTime object that can be used with DateTimeFormatter
+     * @param timezone The timezone
+     * @return A Joda Time DateTime Object
+     */
     private DateTime getDateTime(String timezone) {
         DateTime now = new DateTime();
         DateTimeZone tz = DateTimeZone.forID(timezone);
