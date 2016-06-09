@@ -20,7 +20,7 @@
         android:id="@+id/dateSpinner"
         android:layout_alignParentTop="true"
         android:entries="@array/time_builder_preset_entries"
-        android:entryValues="@array/time_builder_preset_values"
+        android:entryValues="@array/time_format_builder_preset_values"
         android:layout_toEndOf="@+id/dateLabelTextView" />
 
     <TextView
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/timeSpinner"
         android:entries="@array/time_builder_preset_entries"
-        android:entryValues="@array/time_builder_preset_values"
+        android:entryValues="@array/time_format_builder_preset_values"
         android:layout_alignTop="@+id/timeLabelTextView"
         android:layout_toEndOf="@+id/timeLabelTextView" />
 
@@ -60,7 +60,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/time_builder_note"
+        android:text="@string/time_format_builder_note"
         android:id="@+id/advancedNote"
         android:layout_below="@+id/customPattern"
         android:layout_alignParentStart="true" />
