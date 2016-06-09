@@ -31,7 +31,7 @@ public class FormatBuilder extends AppCompatActivity
     private CheckBox useAdvanced;
     private Bundle bundle;
 
-    private String format;
+    private String format, prefPrefix;
     private SharedPreferences preferences;
 
     @Override
@@ -55,6 +55,7 @@ public class FormatBuilder extends AppCompatActivity
         useAdvanced.setOnCheckedChangeListener(this);
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        prefPrefix = bundle.getString("id");
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item,
@@ -107,5 +108,10 @@ public class FormatBuilder extends AppCompatActivity
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private loadPreferences() {
+        useAdvanced.setChecked(preferences.getBoolean(prefPrefix +
+                getString(R.string.prefs_use_advanced_checked_key_suffix), false));
     }
 }

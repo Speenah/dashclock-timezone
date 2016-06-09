@@ -74,6 +74,10 @@
     <string name="time_format_builder_time_label">Time:</string>
     <string name="time_format_builder_preview_label">Preview: </string>
 
+    <string name="prefs_time_spinner_position_key_suffix">_time_position</string>
+    <string name="prefs_date_spinner_position_key_suffix">_date_position</string>
+    <string name="prefs_use_advanced_checked_key_suffix">_use_advanced</string>
+
     <!-- About [Preference] -->
     <string name="prefs_about_key">about_dialog</string>
     <string name="prefs_about_title">About</string>
