@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
+        android:text="@string/time_format_builder_date_label"
         android:id="@+id/dateLabelTextView"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/dateSpinner"
         android:layout_alignParentTop="true"
-        android:entries="@array/time_builder_preset_entries"
+        android:entries="@array/time_format_builder_preset_entries"
         android:entryValues="@array/time_format_builder_preset_values"
         android:layout_toEndOf="@+id/dateLabelTextView" />
 
@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
+        android:text="@string/time_format_builder_time_label"
         android:id="@+id/timeLabelTextView"
         android:layout_alignBottom="@+id/dateSpinner"
         android:layout_alignParentStart="true" />
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/timeSpinner"
-        android:entries="@array/time_builder_preset_entries"
+        android:entries="@array/time_format_builder_preset_entries"
         android:entryValues="@array/time_format_builder_preset_values"
         android:layout_alignTop="@+id/timeLabelTextView"
         android:layout_toEndOf="@+id/timeLabelTextView" />
@@ -44,7 +44,7 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Advanced"
+        android:text="@string/time_format_builder_advanced_label"
         android:id="@+id/advancedCheckBox"
         android:layout_below="@+id/timeSpinner"
         android:layout_alignParentStart="true"
