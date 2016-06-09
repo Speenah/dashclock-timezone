@@ -72,6 +72,7 @@
     <string name="time_format_builder_advanced_label">Advanced</string>
     <string name="time_format_builder_date_label">Date:</string>
     <string name="time_format_builder_time_label">Time:</string>
+    <string name="time_format_builder_preview_label">Preview: </string>
 
     <!-- About [Preference] -->
     <string name="prefs_about_key">about_dialog</string>
