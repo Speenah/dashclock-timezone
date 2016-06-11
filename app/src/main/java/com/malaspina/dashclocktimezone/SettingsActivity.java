@@ -206,13 +206,22 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             public boolean onPreferenceClick(Preference preference) {
                 if (preference.getKey().equals(getString(R.string.prefs_time_builder_key))) {
                     Intent i = new Intent(getActivity(), FormatBuilder.class);
-                    i.putExtra("id", getTimezone_key());
+                    i.putExtra("suffix", getTFBSuffixFromTimezoneKey(getTimezone_key()));
                     startActivity(i);
                     return true;
                 }
                 return false;
             }
         };
+
+        private String getTFBSuffixFromTimezoneKey(String timezoneKey) {
+            String lastLetter = timezoneKey.substring(timezoneKey.length() - 1);
+            if (lastLetter.equals("e")) {
+                return "";
+            } else {
+                return lastLetter;
+            }
+        }
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)

@@ -36,7 +36,7 @@ public class FormatBuilder extends AppCompatActivity {
     private CheckBox useAdvanced;
     private Bundle intent;
 
-    private String format;
+    private String format, prefs_suffix;
     private SharedPreferences preferences;
 
     @Override
@@ -55,6 +55,7 @@ public class FormatBuilder extends AppCompatActivity {
         if (intent == null) {
             intent = new Bundle();
         }
+        prefs_suffix = intent.getString("suffix");
 
         preview          = (TextView) findViewById(R.id.timeFormatBuilderLivePreviewTextView);
         time             = (Spinner)  findViewById(R.id.timeSpinner);
@@ -161,11 +162,13 @@ public class FormatBuilder extends AppCompatActivity {
     private void savePrefs() {
         SharedPreferences.Editor editor = preferences.edit();
 
-        editor.putBoolean(intent.getString(Keys.KEY_USE_ADVANCED), useAdvanced.isChecked());
-        editor.putString(intent.getString(Keys.KEY_FORMAT), format);
-        editor.putInt(intent.getString(Keys.KEY_TIME_SPINNER_POS),
+        editor.putBoolean(intent.getString(getString(R.string.prefs_key_use_advanced)
+                + prefs_suffix), useAdvanced.isChecked());
+        editor.putString(intent.getString(getString(R.string.prefs_key_extended_format)
+                + prefs_suffix), format);
+        editor.putInt(getString(R.string.prefs_key_time_spinner_position) + prefs_suffix,
                 time.getSelectedItemPosition());
-        editor.putInt(intent.getString(Keys.KEY_DATE_SPINNER_POS),
+        editor.putInt(getString(R.string.prefs_key_date_spinner_position) + prefs_suffix,
                 date.getSelectedItemPosition());
 
         editor.apply();
@@ -173,13 +176,15 @@ public class FormatBuilder extends AppCompatActivity {
 
     private void loadPrefs() {
 
-        int time_position = preferences.getInt(intent.getString(Keys.KEY_TIME_SPINNER_POS), 0);
-        time.setSelection(time_position);
-        date.setSelection(preferences.getInt(intent.getString(Keys.KEY_DATE_SPINNER_POS), 0));
+        time.setSelection(preferences.getInt(getString(R.string.prefs_key_time_spinner_position)
+                + prefs_suffix, 0));
+        date.setSelection(preferences.getInt(getString(R.string.prefs_key_date_spinner_position)
+                + prefs_suffix, 0));
 
-        useAdvanced.setChecked(preferences.getBoolean(intent.getString(Keys.KEY_USE_ADVANCED), false));
+        useAdvanced.setChecked(preferences.getBoolean(getString(R.string.prefs_key_use_advanced)
+                + prefs_suffix, false));
 
-        format = preferences.getString(intent.getString(Keys.KEY_FORMAT),
+        format = preferences.getString(getString(R.string.prefs_key_extended_format) + prefs_suffix,
                 DateTimeFormat.patternForStyle("SS", Locale.getDefault()));
         advancedEditText.setText(format);
     }
