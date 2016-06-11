@@ -17,15 +17,15 @@
     <string name="prefs_category_about">About</string>
 
     <!-- Select Timezone [ListPreference] -->
-    <string name="prefs_select_timezone_key_1">timezone_1</string>
-    <string name="prefs_select_timezone_key_2">timezone_2</string>
-    <string name="prefs_select_timezone_key_3">timezone_3</string>
+    <string name="prefs_select_timezone_key_1">ntimezone</string>
+    <string name="prefs_select_timezone_key_2">ntimezone2</string>
+    <string name="prefs_select_timezone_key_3">ntimezone3</string>
     <string name="prefs_select_timezone_title">Select Timezone</string>
 
     <!-- Status Format [ListPreference] -->
-    <string name="prefs_12_or_24_key_1">select_12_or_24_hour_format_1</string>
-    <string name="prefs_12_or_24_key_2">select_12_or_24_hour_format_2</string>
-    <string name="prefs_12_or_24_key_3">select_12_or_24_hour_format_3</string>
+    <string name="prefs_12_or_24_key_1">short_format</string>
+    <string name="prefs_12_or_24_key_2">short_format2</string>
+    <string name="prefs_12_or_24_key_3">short_format3</string>
     <string name="prefs_12_or_24_title">Select Status Format</string>
 
     <string-array name="prefs_12_or_24_entries">
@@ -39,9 +39,9 @@
     </string-array>
 
     <!-- Extended Format [ListPreference] -->
-    <string name="prefs_system_or_custom_key_1">select_system_or_custom_format_1</string>
-    <string name="prefs_system_or_custom_key_2">select_system_or_custom_format_2</string>
-    <string name="prefs_system_or_custom_key_3">select_system_or_custom_format_3</string>
+    <string name="prefs_system_or_custom_key_1">use_system</string>
+    <string name="prefs_system_or_custom_key_2">use_system2</string>
+    <string name="prefs_system_or_custom_key_3">use_system3</string>
     <string name="prefs_system_or_custom_title">Select Extended Format</string>
 
     <string-array name="prefs_system_or_custom_entries_values">
@@ -74,9 +74,14 @@
     <string name="time_format_builder_time_label">Time:</string>
     <string name="time_format_builder_preview_label">Preview: </string>
 
-    <string name="prefs_time_spinner_position_key_suffix">_time_position</string>
-    <string name="prefs_date_spinner_position_key_suffix">_date_position</string>
-    <string name="prefs_use_advanced_checked_key_suffix">_use_advanced</string>
+    <string name="time_format_builder_toast_message_illegal_argument_followup">
+        \n\nTo use plain text in your time format, wrap it in single quotes.
+    </string>
+
+    <string name="prefs_key_time_spinner_position">timeSpinnerPos</string>
+    <string name="prefs_key_date_spinner_position">dateSpinnerPos</string>
+    <string name="prefs_key_use_advanced">advanced</string>
+    <string name="prefs_key_extended_format">format</string>
 
     <!-- About [Preference] -->
     <string name="prefs_about_key">about_dialog</string>
