@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <service android:name=".Extension_1"
+        <service android:name=".Extension"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/ext_title_1"
             android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA">
@@ -28,7 +28,7 @@
 
         </service>
 
-        <service android:name=".Extension_2"
+        <service android:name=".Extension2"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/ext_title_2"
             android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA">
@@ -46,7 +46,7 @@
 
         </service>
 
-        <service android:name=".Extension_3"
+        <service android:name=".Extension3"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/ext_title_3"
             android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA">
