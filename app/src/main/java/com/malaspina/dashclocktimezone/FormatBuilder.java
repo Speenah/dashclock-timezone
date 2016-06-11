@@ -76,8 +76,12 @@ public class FormatBuilder extends AppCompatActivity {
         useAdvanced.setOnCheckedChangeListener(checkedChangeListener);
         advancedEditText.addTextChangedListener(advancedWatcher);
 
-        loadPrefs();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadPrefs();
     }
 
     @Override
@@ -88,9 +92,7 @@ public class FormatBuilder extends AppCompatActivity {
 
     TextWatcher advancedWatcher = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-        }
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -101,7 +103,7 @@ public class FormatBuilder extends AppCompatActivity {
                         .withLocale(Locale.getDefault())
                         .print(new DateTime(System.currentTimeMillis())));
             } catch (IllegalArgumentException e) {
-                Toast error = Toast.makeText(TimeFormatBuilder.this, e.getMessage() +
+                Toast error = Toast.makeText(FormatBuilder.this, e.getMessage() +
                         getString(R.string.time_format_builder_toast_message_illegal_argument_followup),
                         Toast.LENGTH_SHORT);
                 error.setGravity(Gravity.CENTER, 0 ,0);
