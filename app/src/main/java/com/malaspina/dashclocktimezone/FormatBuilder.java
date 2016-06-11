@@ -198,4 +198,5 @@ public class FormatBuilder extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }
