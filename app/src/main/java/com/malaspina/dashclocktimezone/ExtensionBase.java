@@ -25,7 +25,8 @@ public class ExtensionBase extends DashClockExtension {
 
     private String timezone_key;
     private String hour_format_key;
-    private String ext_format_key;
+    private String use_system_format_key;
+    private String customFormatKey;
 
     SharedPreferences prefs;
 
@@ -54,15 +55,23 @@ public class ExtensionBase extends DashClockExtension {
                 getString(R.string.default_timezone));
         String hourFormat = prefs.getString(getHour_format_key(),
                 getString(R.string.default_hour_format));
-        String extFormat  = prefs.getString(getExt_format_key(),
-                getString(R.string.default_extended_format));
+        boolean useSystemFormat = prefs.getBoolean(getUseSystemFormatKey(), false);
+
+        String customFormat = prefs.getString(getCustomFormatKey(),
+                DateTimeFormat.patternForStyle("MS", Locale.getDefault()));
 
         ExtensionData data = new ExtensionData();
 
         data.visible(true);
         data.icon(R.mipmap.ic_stat);
         data.status(getTime(timezone, hourFormat));
-        data.expandedTitle(getExtendedTime(timezone, hourFormat));
+
+        if (useSystemFormat) {
+            data.expandedTitle(getExtendedTime(timezone, hourFormat));
+        } else {
+            data.expandedTitle(getTime(timezone, customFormat));
+        }
+
         data.expandedBody(timezone);
 
         publishUpdate(data);
@@ -137,11 +146,19 @@ public class ExtensionBase extends DashClockExtension {
         this.hour_format_key = hour_format_key;
     }
 
-    public String getExt_format_key() {
-        return ext_format_key;
+    public String getUseSystemFormatKey() {
+        return use_system_format_key;
     }
 
-    public void setExt_format_key(String ext_format_key) {
-        this.ext_format_key = ext_format_key;
+    public void setUseSystemFormatKey(String use_system_format_key) {
+        this.use_system_format_key = use_system_format_key;
+    }
+
+    public String getCustomFormatKey() {
+        return customFormatKey;
+    }
+
+    public void setCustomFormatKey(String customFormatKey) {
+        this.customFormatKey = customFormatKey;
     }
 }

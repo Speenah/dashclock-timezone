@@ -81,7 +81,10 @@
     <string name="prefs_key_time_spinner_position">timeSpinnerPos</string>
     <string name="prefs_key_date_spinner_position">dateSpinnerPos</string>
     <string name="prefs_key_use_advanced">advanced</string>
+
     <string name="prefs_key_extended_format">format</string>
+    <string name="prefs_key_extended_format_2">format2</string>
+    <string name="prefs_key_extended_format_3">format3</string>
 
     <!-- About [Preference] -->
     <string name="prefs_about_key">about_dialog</string>
