@@ -162,10 +162,9 @@ public class FormatBuilder extends AppCompatActivity {
     private void savePrefs() {
         SharedPreferences.Editor editor = preferences.edit();
 
-        editor.putBoolean(intent.getString(getString(R.string.prefs_key_use_advanced)
-                + prefs_suffix), useAdvanced.isChecked());
-        editor.putString(intent.getString(getString(R.string.prefs_key_extended_format)
-                + prefs_suffix), format);
+        editor.putBoolean(getString(R.string.prefs_key_use_advanced)
+                + prefs_suffix, useAdvanced.isChecked());
+        editor.putString((getString(R.string.prefs_key_extended_format) + prefs_suffix), format);
         editor.putInt(getString(R.string.prefs_key_time_spinner_position) + prefs_suffix,
                 time.getSelectedItemPosition());
         editor.putInt(getString(R.string.prefs_key_date_spinner_position) + prefs_suffix,
