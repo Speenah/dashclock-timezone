@@ -8,7 +8,7 @@ public class Extension2 extends ExtensionBase {
     public void onCreate() {
         setTimezone_key(getString(R.string.prefs_select_timezone_key_2));
         setHour_format_key(getString(R.string.prefs_12_or_24_key_2));
-        setUseSystemFormatKey(getString(R.string.prefs_system_or_custom_key_2));
+        setUseSystemFormatKey(getString(R.string.prefs_key_use_system_2));
         setCustomFormatKey(getString(R.string.prefs_key_extended_format_2));
         super.onCreate();
     }

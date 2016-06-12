@@ -39,9 +39,9 @@
     </string-array>
 
     <!-- Extended Format [ListPreference] -->
-    <string name="prefs_system_or_custom_key_1">use_system</string>
-    <string name="prefs_system_or_custom_key_2">use_system2</string>
-    <string name="prefs_system_or_custom_key_3">use_system3</string>
+    <string name="prefs_system_or_custom_key_1">select_system_or_custom_format</string>
+    <string name="prefs_system_or_custom_key_2">select_system_or_custom_format2</string>
+    <string name="prefs_system_or_custom_key_3">select_system_or_custom_format3</string>
     <string name="prefs_system_or_custom_title">Select Extended Format</string>
 
     <string-array name="prefs_system_or_custom_entries_values">
@@ -85,6 +85,10 @@
     <string name="prefs_key_extended_format">format</string>
     <string name="prefs_key_extended_format_2">format2</string>
     <string name="prefs_key_extended_format_3">format3</string>
+
+    <string name="prefs_key_use_system_1">use_system</string>
+    <string name="prefs_key_use_system_2">use_system2</string>
+    <string name="prefs_key_use_system_3">use_system3</string>
 
     <!-- About [Preference] -->
     <string name="prefs_about_key">about_dialog</string>
