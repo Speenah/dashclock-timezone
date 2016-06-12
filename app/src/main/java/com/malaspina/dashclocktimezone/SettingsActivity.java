@@ -15,9 +15,13 @@ import android.preference.PreferenceActivity;
 import android.support.v7.app.ActionBar;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.mikepenz.aboutlibraries.Libs;
+import com.mikepenz.aboutlibraries.LibsBuilder;
 
 import java.util.List;
 
@@ -168,6 +172,8 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             timeFormatBuilderLauncher = findPreference(getString(
                     R.string.prefs_time_builder_key));
             timeFormatBuilderLauncher.setOnPreferenceClickListener(onPreferenceClickListener);
+            findPreference(getString(R.string.prefs_about_key))
+                    .setOnPreferenceClickListener(onPreferenceClickListener);
         }
 
         @Override
@@ -225,6 +231,14 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                     i.putExtra("suffix", getTFBSuffixFromTimezoneKey(getTimezone_key()));
                     startActivity(i);
                     return true;
+                } else if (preference.getKey().equals(getString(R.string.prefs_about_key))) {
+                    new LibsBuilder()
+                            //Pass the fields of your application to the lib so it can find all external lib information
+                            .withFields(R.string.class.getFields())
+                            //provide a style (optional) (LIGHT, DARK, LIGHT_DARK_TOOLBAR)
+                            .withActivityStyle(Libs.ActivityStyle.LIGHT_DARK_TOOLBAR)
+                            //start the activity
+                            .start(getActivity());
                 }
                 return false;
             }
