@@ -5,6 +5,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -36,7 +37,8 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
      * A preference value change listener that updates the preference's summary
      * to reflect its new value.
      */
-    private static Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {
+    private static Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener
+            = new Preference.OnPreferenceChangeListener() {
         @Override
         public boolean onPreferenceChange(Preference preference, Object value) {
             String stringValue = value.toString();
@@ -148,6 +150,8 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         private String ext_format_key;
         private int prefs_xml;
 
+        private Preference timeFormatBuilderLauncher;
+
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -161,8 +165,19 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             bindPreferenceSummaryToValue(findPreference(getExt_format_key()),
                     getString(R.string.default_extended_format));
 
-            findPreference(getString(R.string.prefs_time_builder_key))
-                    .setOnPreferenceClickListener(onPreferenceClickListener);
+            timeFormatBuilderLauncher = findPreference(getString(
+                    R.string.prefs_time_builder_key));
+            timeFormatBuilderLauncher.setOnPreferenceClickListener(onPreferenceClickListener);
+        }
+
+        @Override
+        public void onResume() {
+            super.onResume();
+            // FIXME: 6/12/2016 Find a better way to set custom format summary
+            timeFormatBuilderLauncher.setSummary(PreferenceManager
+                    .getDefaultSharedPreferences(getActivity())
+                    .getString(getString(R.string.prefs_key_extended_format)
+                            + getTFBSuffixFromTimezoneKey(getTimezone_key()), ""));
         }
 
         public String getTimezone_key() {
@@ -201,7 +216,8 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             this.getActivity().setTitle(title);
         }
 
-        private Preference.OnPreferenceClickListener onPreferenceClickListener = new Preference.OnPreferenceClickListener() {
+        private Preference.OnPreferenceClickListener onPreferenceClickListener
+                = new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
                 if (preference.getKey().equals(getString(R.string.prefs_time_builder_key))) {
