@@ -1,5 +1,6 @@
-import java.util.TimeZone;
-import java.util.List;
+import org.joda.time.DateTimeZone;
+import java.util.Set;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
@@ -20,8 +21,9 @@ class GenerateTimezonesXml {
     
     String filename = "timezones.xml";
   
-    String[] ids = TimeZone.getAvailableIDs();
-    List<String> sortIDs = Arrays.asList(ids);
+    Set<String> ids = DateTimeZone.getAvailableIDs();
+    ArrayList<String> sortIDs = new ArrayList<>(ids.size());
+    sortIDs.addAll(ids);
     Collections.sort(sortIDs);
 
     String output = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -36,6 +38,7 @@ class GenerateTimezonesXml {
     output += "\t</string-array>\n" +
               "</resources>";
     
+    //System.out.println(output);
     writeFile(output, filename);
   }
   
@@ -52,7 +55,7 @@ class GenerateTimezonesXml {
   }
   
   private static String getCurrentDate() {
-    DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+    DateFormat df = new SimpleDateFormat("MMM dd yyyy");
     Date date = new Date();
     
     return df.format(date);
