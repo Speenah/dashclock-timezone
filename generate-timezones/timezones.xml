@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<!-- Timezone IDs generated on Jun 13 2016 -->
+	<!-- Timezone IDs generated on Nov 06 2016 -->
 	<string-array name="prefs_timezone_ids">
 		<item>Africa/Abidjan</item>
 		<item>Africa/Accra</item>
@@ -262,6 +262,7 @@
 		<item>Asia/Dili</item>
 		<item>Asia/Dubai</item>
 		<item>Asia/Dushanbe</item>
+		<item>Asia/Famagusta</item>
 		<item>Asia/Gaza</item>
 		<item>Asia/Harbin</item>
 		<item>Asia/Hebron</item>
@@ -327,6 +328,7 @@
 		<item>Asia/Vientiane</item>
 		<item>Asia/Vladivostok</item>
 		<item>Asia/Yakutsk</item>
+		<item>Asia/Yangon</item>
 		<item>Asia/Yekaterinburg</item>
 		<item>Asia/Yerevan</item>
 		<item>Atlantic/Azores</item>
@@ -390,9 +392,6 @@
 		<item>Etc/GMT</item>
 		<item>Etc/GMT+0</item>
 		<item>Etc/GMT+1</item>
-		<item>Etc/GMT+10</item>
-		<item>Etc/GMT+11</item>
-		<item>Etc/GMT+12</item>
 		<item>Etc/GMT+2</item>
 		<item>Etc/GMT+3</item>
 		<item>Etc/GMT+4</item>
@@ -401,13 +400,11 @@
 		<item>Etc/GMT+7</item>
 		<item>Etc/GMT+8</item>
 		<item>Etc/GMT+9</item>
+		<item>Etc/GMT+10</item>
+		<item>Etc/GMT+11</item>
+		<item>Etc/GMT+12</item>
 		<item>Etc/GMT-0</item>
 		<item>Etc/GMT-1</item>
-		<item>Etc/GMT-10</item>
-		<item>Etc/GMT-11</item>
-		<item>Etc/GMT-12</item>
-		<item>Etc/GMT-13</item>
-		<item>Etc/GMT-14</item>
 		<item>Etc/GMT-2</item>
 		<item>Etc/GMT-3</item>
 		<item>Etc/GMT-4</item>
@@ -416,6 +413,11 @@
 		<item>Etc/GMT-7</item>
 		<item>Etc/GMT-8</item>
 		<item>Etc/GMT-9</item>
+		<item>Etc/GMT-10</item>
+		<item>Etc/GMT-11</item>
+		<item>Etc/GMT-12</item>
+		<item>Etc/GMT-13</item>
+		<item>Etc/GMT-14</item>
 		<item>Etc/GMT0</item>
 		<item>Etc/Greenwich</item>
 		<item>Etc/UCT</item>
